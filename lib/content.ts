@@ -32,8 +32,8 @@ export const content = {
     },
   },
   announcement: {
-    zh: "6 月 19 日 家长说明会 · 即日起开放报名",
-    en: "June 19 parent info session · Enrollment now open",
+    zh: "7 月 3 日迷你说明会 · 7 月 4 日数学试听课",
+    en: "July 3 mini info session · July 4 free trial math class",
   },
   hero: {
     tag: { zh: "蒙特利尔 · 中学入学考试备考", en: "Montreal · Secondary admission exam prep" },
@@ -127,8 +127,8 @@ export const content = {
   infoSession: {
     title: { zh: "说明会", en: "Information session" },
     body: {
-      zh: "说明会将于6月19日晚上7点至9点举行，欢迎所有家长参加。届时会介绍收费、课程安排、备考方式等详细信息，并设有问答环节。活动将在线上举行（Zoom）。",
-      en: "Our information session is on June 19, 7:00 to 9:00 PM. All parents welcome. We'll cover pricing, the class schedule, and how we prepare the children, with a Q&A. The session will be held online (Zoom).",
+      zh: "迷你说明会将于7月3日晚上7点至7点半举行，欢迎所有家长参加。届时会简短介绍收费、课程安排、备考方式等信息，并设有问答环节。活动将在线上举行（Zoom）。",
+      en: "Our mini info session is on July 3, 7:00 to 7:30 PM. All parents welcome. We'll give a short overview of pricing, the class schedule, and how we prepare the children, with a Q&A. The session will be held online (Zoom).",
     },
     enrolNote: {
       zh: "报名现已开放，名额有限，先到先得。",
@@ -264,19 +264,19 @@ export const content = {
     title: { zh: "重要日期", en: "Key dates" },
     items: [
       {
-        date: { zh: "6 月 19 日", en: "June 19" },
-        label: { zh: "家长说明会 · 晚 7–9 点", en: "Parent info session · 7–9 PM" },
+        date: { zh: "7 月 3 日", en: "July 3" },
+        label: { zh: "迷你说明会 · 晚 7:00–7:30", en: "Mini info session · 7:00–7:30 PM" },
         note: {
-          zh: "介绍收费、课程安排与备考方式，并设有问答环节。活动在线上举行（Zoom）。",
-          en: "Covers pricing, schedule, and how we prepare students, with a Q&A. Held online (Zoom).",
+          zh: "简短介绍课程与收费，欢迎家长在线参加（Zoom）。",
+          en: "A short overview of the program and pricing. All parents welcome, held online (Zoom).",
         },
       },
       {
-        date: { zh: "6 月 19 日", en: "June 19" },
-        label: { zh: "开放报名", en: "Enrollment opens" },
+        date: { zh: "7 月 4 日", en: "July 4" },
+        label: { zh: "数学试听课（免费）· 上午 10:00–11:00", en: "Free trial math class · 10:00–11:00 AM" },
         note: {
-          zh: "报名现已开放，名额有限，报满即止。",
-          en: "Enrollment is now open. Limited spots, first come first served.",
+          zh: "免费试听一节数学课，实际体验我们的授课方式。",
+          en: "A free trial math class so you can experience how we teach.",
         },
       },
     ] as { date: Bi; label: Bi; note: Bi }[],
