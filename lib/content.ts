@@ -32,8 +32,8 @@ export const content = {
     },
   },
   announcement: {
-    zh: "7 月 3 日迷你说明会 · 7 月 4 日数学试听课",
-    en: "July 3 mini info session · July 4 free trial math class",
+    zh: "7 月 10 日法语试听课",
+    en: "July 10 free trial French class",
   },
   hero: {
     tag: { zh: "蒙特利尔 · 中学入学考试备考", en: "Montreal · Secondary admission exam prep" },
@@ -108,9 +108,9 @@ export const content = {
   pricing: {
     title: { zh: "收费", en: "Pricing" },
     rows: [
-      { label: { zh: "选 1 门", en: "1 subject" }, price: "$15" },
-      { label: { zh: "选 2 门", en: "2 subjects" }, price: "$30" },
-      { label: { zh: "选 3 门（套餐）", en: "3 subjects (bundle)" }, price: "$40" },
+      { label: { zh: "选 1 门", en: "1 subject" }, price: "$20" },
+      { label: { zh: "选 2 门", en: "2 subjects" }, price: "$40" },
+      { label: { zh: "选 3 门（套餐）", en: "3 subjects (bundle)" }, price: "$45" },
     ] as { label: Bi; price: string }[],
     note: {
       zh: "建议参加全部三门课，效果更全面，也更划算。",
@@ -122,17 +122,6 @@ export const content = {
     body: {
       zh: "主要适合小学三、四、五年级，准备中学入学考试的学生。有特殊情况（例如 Sec 1 想转入 Sec 2）或想了解一对一辅导的家长，欢迎私信联系我们。",
       en: "Best for primary grades 3, 4, and 5 preparing for the secondary admission exams. For special cases (e.g. a Sec 1 student transferring into Sec 2) or one-on-one tutoring, message us privately.",
-    },
-  },
-  infoSession: {
-    title: { zh: "说明会", en: "Information session" },
-    body: {
-      zh: "迷你说明会将于7月3日晚上7点至7点半举行，欢迎所有家长参加。届时会简短介绍收费、课程安排、备考方式等信息，并设有问答环节。活动将在线上举行（Zoom）。",
-      en: "Our mini info session is on July 3, 7:00 to 7:30 PM. All parents welcome. We'll give a short overview of pricing, the class schedule, and how we prepare the children, with a Q&A. The session will be held online (Zoom).",
-    },
-    enrolNote: {
-      zh: "报名现已开放，名额有限，先到先得。",
-      en: "Enrollment is now open. Limited spots, first come first served.",
     },
   },
   advantages: {
@@ -264,19 +253,11 @@ export const content = {
     title: { zh: "重要日期", en: "Key dates" },
     items: [
       {
-        date: { zh: "7 月 3 日", en: "July 3" },
-        label: { zh: "迷你说明会 · 晚 7:00–7:30", en: "Mini info session · 7:00–7:30 PM" },
+        date: { zh: "7 月 10 日", en: "July 10" },
+        label: { zh: "法语试听课（免费）· 上午 10:00–11:00", en: "Free trial French class · 10:00–11:00 AM" },
         note: {
-          zh: "简短介绍课程与收费，欢迎家长在线参加（Zoom）。",
-          en: "A short overview of the program and pricing. All parents welcome, held online (Zoom).",
-        },
-      },
-      {
-        date: { zh: "7 月 4 日", en: "July 4" },
-        label: { zh: "数学试听课（免费）· 上午 10:00–11:00", en: "Free trial math class · 10:00–11:00 AM" },
-        note: {
-          zh: "免费试听一节数学课，实际体验我们的授课方式。",
-          en: "A free trial math class so you can experience how we teach.",
+          zh: "免费试听一节法语课，实际体验我们的授课方式。",
+          en: "A free trial French class so you can experience how we teach.",
         },
       },
     ] as { date: Bi; label: Bi; note: Bi }[],
@@ -289,10 +270,6 @@ export const content = {
         en: "Scan the QR code and message us on WeChat.",
       },
       {
-        zh: "先参加说明会，详细了解课程内容与备考安排。",
-        en: "Join the information session first to learn how the courses and exam prep work.",
-      },
-      {
         zh: "确认报名后，我们会邀请您加入家长群，及时同步上课信息。",
         en: "Once you enrol, we'll add you to the parents' group so you get all the class updates.",
       },
@@ -302,8 +279,8 @@ export const content = {
     {
       q: { zh: "你们是怎么收费的？", en: "How do you charge?" },
       a: {
-        zh: "小组课程 15$/小时/科目。选1门15$，选2门30$，选3门40$（套餐优惠）。一对一价格因导师而异，请私信。",
-        en: "Group classes are $15/hour/subject. 1 subject $15, 2 subjects $30, 3 subjects $40 (bundle). One-on-one pricing varies by tutor; please message us.",
+        zh: "小组课程 20$/小时/科目。选1门20$，选2门40$，选3门45$（套餐优惠）。一对一价格因导师而异，请私信。",
+        en: "Group classes are $20/hour/subject. 1 subject $20, 2 subjects $40, 3 subjects $45 (bundle). One-on-one pricing varies by tutor; please message us.",
       },
     },
     {
