@@ -4,6 +4,12 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react()],
+  oxc: {
+    jsx: {
+      runtime: "automatic",
+      importSource: "react",
+    },
+  },
   test: {
     environment: "jsdom",
     globals: true,

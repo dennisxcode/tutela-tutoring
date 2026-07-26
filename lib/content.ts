@@ -3,12 +3,12 @@ export type Bi = { zh: string; en: string };
 export const content = {
   meta: {
     title: {
-      zh: "识途学辅 · 中学入学考试辅导",
-      en: "Tutela · Secondary Admission Exam Tutoring",
+      zh: "识途学辅 · 蒙特利尔升学与学科辅导",
+      en: "Tutela · Montreal Admission & Academic Tutoring",
     },
     description: {
-      zh: "由亲身经历过中学入学考试的尖子生提供的小组辅导。",
-      en: "Small-group secondary admission exam tutoring by students who've been through the exams themselves.",
+      zh: "由来自魁北克顶尖中学的精英学生提供的小组辅导，打牢基础，启发兴趣，助力升学。",
+      en: "Small-group academic & admission exam tutoring by students from top Quebec secondary schools.",
     },
     brand: { zh: "识途学辅", en: "Tutela" },
   },
@@ -32,21 +32,21 @@ export const content = {
     },
   },
   announcement: {
-    zh: "7 月 10 日法语试听课",
-    en: "July 10 free trial French class",
+    zh: "7 月 30 日信息分享会 & 数学免费公开课（晚 7:30–9:00）",
+    en: "July 30 Info Session & Free Math Trial Class (7:30–9:00 PM)",
   },
   hero: {
-    tag: { zh: "蒙特利尔 · 中学入学考试备考", en: "Montreal · Secondary admission exam prep" },
-    title: { zh: "中学入学考试辅导", en: "Secondary Admission Exam Tutoring" },
+    tag: { zh: "蒙特利尔 · 升学与学科辅导", en: "Montreal · Admission & Academic Tutoring" },
+    title: { zh: "打牢基础，启发兴趣，从容应对挑战", en: "Build Strong Fundamentals, Inspire Genuine Interest" },
     subtitle: {
-      zh: "我们是亲身经历过中学入学考试的尖子生，帮助孩子顺利通过考试。",
-      en: "We're top students who've sat the same admission exams, here to help your child pass theirs.",
+      zh: "我们是来自魁北克顶尖中学的学生，帮助孩子打好基础、爱上学习——也帮孩子顺利通过中学入学考试。",
+      en: "We are students from top Quebec secondary schools, helping children build strong foundations and a genuine love for learning — while also guiding them to successfully pass their secondary admission exams.",
     },
   },
   stats: [
-    { value: { zh: "1–10", en: "1–10" }, label: { zh: "人 / 每班", en: "per class" } },
+    { value: { zh: "5–10", en: "5–10" }, label: { zh: "人 / 每班", en: "per class" } },
     { value: { zh: "3", en: "3" }, label: { zh: "门科目", en: "subjects" } },
-    { value: { zh: "周六", en: "Sat" }, label: { zh: "上午授课", en: "mornings" } },
+    { value: { zh: "Zoom", en: "Zoom" }, label: { zh: "线上授课", en: "fully online" } },
   ] as { value: Bi; label: Bi }[],
   whyUs: {
     title: { zh: "为什么选择我们", en: "Why choose us" },
@@ -56,28 +56,46 @@ export const content = {
         en: "We've sat the same admission exams ourselves: we know exactly what they test and how to prepare.",
       },
       {
-        zh: "导师均就读于魁北克顶尖中学，包括 Collège Jean-de-Brébeuf。",
-        en: "Our tutors all attend top Quebec secondary schools, including Collège Jean-de-Brébeuf.",
+        zh: "导师均来自魁北克顶尖中学（包括 Collège Jean-de-Brébeuf 等），学术优异。",
+        en: "Our tutors all come from top Quebec secondary schools, including Collège Jean-de-Brébeuf.",
       },
       {
-        zh: "1–10 人小班，名额有限，确保每个孩子都得到充分关注。",
-        en: "Small classes of 1–10 with limited spots, so every child gets real attention.",
+        zh: "5–10 人小班，名额有限，确保每个孩子都得到充分关注。",
+        en: "Small classes of 5–10 with limited spots, so every child gets real attention.",
       },
     ] as Bi[],
   },
   whoWeAre: {
     title: { zh: "关于我们", en: "Who we are" },
     body: {
-      zh: "我们是来自魁北克顶尖中学的学生，包括 Collège Jean-de-Brébeuf。我们走过了中学入学考试这条路，希望把自己的备考经验，分享给正在准备的孩子和家庭。",
-      en: "We're students from top Quebec secondary schools, including Collège Jean-de-Brébeuf. We've been through the secondary admission exams ourselves, and we want to share what we learned with the children and families preparing for them now.",
+      zh: "我们相信，好的辅导不只是应付考试，更是帮孩子建立学习的信心和兴趣。我们自己也走过中学入学考试这条路，深知孩子需要什么样的准备。作为来自魁北克顶尖中学（包括 Collège Jean-de-Brébeuf 等）的学生，我们希望把我们的经验和学习方法分享给更多的孩子，帮他们建立扎实的基础和对学习的真实热忱。",
+      en: "We believe that good tutoring is not just about passing exams, but also about building children's confidence and interest in learning. Having walked the path of secondary admission exams ourselves, we know exactly what kind of preparation children need. As students from top Quebec secondary schools (including Collège Jean-de-Brébeuf), we want to share our experience and study methods with more children, helping them build solid foundations and a genuine enthusiasm for learning.",
     },
   },
   whatWeOffer: {
     title: { zh: "我们提供什么", en: "What we offer" },
     body: {
-      zh: "我们主要提供针对中学入学考试的小组辅导，科目包括数学、法语、英语。课程适合小学三、四、五年级的学生，按年级和报名人数分组。除了入学考试备考，我们也提供一般学科辅导。",
-      en: "We focus on small-group tutoring for the secondary admission exams, covering Math, French, and English. Classes suit primary grades 3, 4, and 5, grouped by grade level and enrolment. Beyond admission prep, we also offer general academic tutoring.",
+      zh: "我们提供两大教学体系，旨在帮助不同阶段的孩子。我们以中学入学考试备考为核心优势，同时也致力于为低年级孩子打下稳固的学术基础与良好的学习习惯。",
+      en: "We offer two distinct educational tracks to support children at different stages. While secondary admission exam preparation remains our core focus and strength, we are equally committed to helping younger children build solid foundations and strong learning habits.",
     },
+    tracks: [
+      {
+        name: { zh: "中学入学考试备考 (主推)", en: "Secondary Admission Exam Prep (Primary)" },
+        desc: {
+          zh: "面向三、四、五年级学生。针对数学、法语、英语三门核心科目进行系统化备考，紧扣考点，训练解题策略与考场心态。这是我们的王牌项目，也是我们实力的最佳证明。",
+          en: "For grades 3–5. Systematic preparation across the core subjects of Math, French, and English. We focus on key exam topics, problem-solving strategies, and exam-day confidence. This is our lead product and primary credibility signal.",
+        },
+        badge: { zh: "核心项目 (Grades 3–5)", en: "Primary Focus (Grades 3–5)" }
+      },
+      {
+        name: { zh: "一般学科辅导", en: "General Academic Tutoring" },
+        desc: {
+          zh: "面向四年级及以下的学生。不针对特定考试，而是专注于打牢数学与语言基础，培养良好的学习习惯、专注力以及对学习的浓厚兴趣，为未来的高年级学习做好充足准备。",
+          en: "For grade 4 and below. Rather than being exam-specific, this track focuses on strengthening foundational skills in math and language, building solid study habits, focus, and a genuine curiosity for learning.",
+        },
+        badge: { zh: "基础养成 (Grade 4 & below)", en: "Foundations (Grade 4 & below)" }
+      }
+    ],
     mockExams: {
       zh: "我们还将提供基于近年入学考试内容设计的模拟测试，帮助孩子熟悉考试形式。（即将推出）",
       en: "We'll also provide practice exams modeled on recent admission-exam content to help children get familiar with the format. (Coming soon)",
@@ -99,50 +117,58 @@ export const content = {
     },
   },
   howItWorks: {
-    title: { zh: "上课方式", en: "How it works" },
+    title: { zh: "上课方式与时间", en: "Format & Schedule" },
     body: {
-      zh: "小组课程在每周六上午9点至12点进行。每组人数设定在1至10人，这样每个孩子都能得到足够的关注。我们采用线下 + 线上结合的方式，根据孩子的情况灵活安排。上课地点正在确认中，确定后会第一时间在家长群通知。",
-      en: "Group classes run every Saturday, 9:00 AM–12:00 PM. Each group is kept to 1–10 students so every child gets enough attention. We combine in-person and online formats, arranged to suit your child. The class location is being finalized and will be announced in the parents' group as soon as it's confirmed.",
+      zh: "我们采用小班授课（每组 5–10 人），确保每个孩子都能得到充分的关注和指导。所有课程完全在线上通过 Zoom 进行，避免路途奔波，让孩子在舒适熟悉的环境中高效学习。",
+      en: "We run small group classes (5–10 students per group) to ensure every child gets personalized attention. All classes are conducted fully online via Zoom, saving travel time and letting your child learn in a comfortable, focused home environment.",
     },
+  },
+  schedule: {
+    title: { zh: "各科目上课时间", en: "Subject Schedule" },
+    items: [
+      { subject: { zh: "英语 (English)", en: "English" }, time: { zh: "每周六上午 10:00–11:00", en: "Saturdays 10:00–11:00 AM" } },
+      { subject: { zh: "数学 (Math)", en: "Math" }, time: { zh: "每周日上午 10:30–11:30", en: "Sundays 10:30–11:30 AM" } },
+      { subject: { zh: "法语 (French)", en: "French" }, time: { zh: "每周六晚上 7:00–8:00", en: "Saturdays 7:00–8:00 PM" } },
+    ] as { subject: Bi; time: Bi }[],
   },
   pricing: {
     title: { zh: "收费", en: "Pricing" },
     rows: [
-      { label: { zh: "选 1 门", en: "1 subject" }, price: "$20" },
-      { label: { zh: "选 2 门", en: "2 subjects" }, price: "$40" },
-      { label: { zh: "选 3 门（套餐）", en: "3 subjects (bundle)" }, price: "$45" },
+      { label: { zh: "单科报名（每科）", en: "1 subject" }, price: "$20" },
+      { label: { zh: "双科报名", en: "2 subjects" }, price: "$40" },
+      { label: { zh: "三科报名（套餐特惠）", en: "3 subjects (bundle)" }, price: "$45" },
     ] as { label: Bi; price: string }[],
     note: {
-      zh: "建议参加全部三门课，效果更全面，也更划算。",
-      en: "We recommend all three subjects: more complete preparation, better value.",
+      zh: "单科报名价格为每节课 $20。同时报名全部三门科目（仅限入学考试备考班）可享受套餐优惠，低至 $15/科（总共 $45/周）。",
+      en: "Standalone classes are $20/class per subject. Enrolling in all three subjects (admission exam prep only) unlocks our bundle rate of $15/class per subject ($45/week total).",
     },
   },
   whoItsFor: {
     title: { zh: "适合谁", en: "Who it's for" },
     body: {
-      zh: "主要适合小学三、四、五年级，准备中学入学考试的学生。有特殊情况（例如 Sec 1 想转入 Sec 2）或想了解一对一辅导的家长，欢迎私信联系我们。",
-      en: "Best for primary grades 3, 4, and 5 preparing for the secondary admission exams. For special cases (e.g. a Sec 1 student transferring into Sec 2) or one-on-one tutoring, message us privately.",
+      zh: "我们的课程主要分为两大方向：\n\n1. 中学入学考试备考班：最适合小学三、四、五年级，目标报考蒙特利尔顶尖私立或公立中学的学生。我们将针对考试题型做系统化辅导，帮助孩子稳稳跨过入学门槛。\n\n2. 一般学科辅导：适合小学四年级及以下的学生。重在夯实语言和数学功底，培养学习信心和良好习惯，激发探索未知和学习新知的主动性。\n\n如有其他特殊情况（例如 Sec 1 跨年级转学）或想了解一对一专属辅导，欢迎随时私信联系我们。",
+      en: "Our offerings are structured into two pathways:\n\n1. Secondary Admission Exam Prep: Designed for students in primary grades 3, 4, and 5 targeting top Quebec secondary schools. We provide systematic training on exam patterns to ensure your child crosses the threshold with confidence.\n\n2. General Academic Tutoring: Designed for students in grade 4 and below. We focus on cementing foundational language and math skills, building academic confidence, and nurturing a genuine interest in learning.\n\nFor unique circumstances (e.g., Sec 1 students transferring) or custom 1-on-1 tutoring, please feel free to message us privately.",
     },
   },
   advantages: {
     title: { zh: "我们的优势", en: "Why choose Tutela" },
     intro: {
-      zh: "我们把最关键的几件事做好，帮孩子稳稳通过中学入学考试。",
-      en: "We focus on the few things that matter most to get your child through the secondary admission exam.",
+      zh: "我们把最关键的几件事做好，帮孩子打牢基础，从容应对升学与日常学科挑战。",
+      en: "We focus on the few things that matter most to help your child build solid foundations and feel confident when facing exams.",
     },
     items: [
       {
-        title: { zh: "专为入学考试设计", en: "Built for the admission exam" },
+        title: { zh: "扎实基础，从容应考", en: "Solid fundamentals, confident testing" },
         body: {
-          zh: "每节课都围绕中学入学考试展开，不是通识补习，而是针对这场考试的专项备考。",
-          en: "Every class is built around the secondary admission exam. Not general academic tutoring, but preparation targeted at this specific test.",
+          zh: "无论是日常学习还是应对入学考试，我们都从打牢基础出发，帮助孩子建立真正的学科信心与解题策略。",
+          en: "Whether for daily classes or admission exams, we start by cementing solid fundamentals, helping children build true confidence and effective problem-solving strategies.",
         },
       },
       {
         title: { zh: "小班，名额有限", en: "Small groups, limited spots" },
         body: {
-          zh: "每组 1–10 人，每个孩子都能得到导师的真正关注，而不是在大班里被忽视。",
-          en: "Groups of 1–10 so every child gets genuine attention, not lost in a large class.",
+          zh: "每组 5–10 人，每个孩子都能得到导师的真正关注，而不是在大班里被忽视。",
+          en: "Groups of 5–10 so every child gets genuine attention, not lost in a large class.",
         },
       },
       {
@@ -183,7 +209,7 @@ export const content = {
         covers: [
           { zh: "阅读理解：抓住文章重点与细节", en: "Reading comprehension: main ideas and details" },
           { zh: "写作：结构清晰、表达准确", en: "Writing: clear structure and accurate expression" },
-          { zh: "语法应用：在阅读与写作中理解和运用", en: "Grammar in context: applied through reading and writing tasks" },
+          { zh: "语法应用：在阅读与写作中理解与运用", en: "Grammar in context: applied through reading and writing tasks" },
           { zh: "答题技巧与考试节奏", en: "Answering technique and exam pacing" },
         ] as Bi[],
       },
@@ -214,8 +240,8 @@ export const content = {
     tag: { zh: "课程", en: "Program" },
     title: { zh: "我们在课上教什么", en: "What we teach in class" },
     intro: {
-      zh: "我们的每一节课都围绕中学入学考试展开：把每一科最关键的内容讲清楚，再带孩子练扎实。下面是三门核心科目我们会重点覆盖的部分，以及上课、收费和报名的具体安排。",
-      en: "Every class is built around the secondary admission exam. For each subject we make the key material clear, then practise it until it's solid. Below is what we focus on in the three core subjects, plus how classes, pricing, and enrolment work.",
+      zh: "我们的课程体系兼顾升学备考与学术基础。中学入学考试备考班围绕数学、法语、英语三科，提炼核心考点；一般学科辅导则侧重习惯、兴趣与基础能力的培养。以下是具体安排：",
+      en: "Our curriculum addresses both selective admission prep and daily academic progress. Secondary prep systematically covers Math, French, and English; general tutoring focuses on building strong study habits and core competencies. Below are the details:",
     },
     coversLabel: { zh: "我们会覆盖", en: "What we cover" },
   },
@@ -236,8 +262,8 @@ export const content = {
       {
         title: { zh: "小班，真关注", en: "Small groups, real attention" },
         body: {
-          zh: "每组 1–10 人，名额有限，老师能照顾到每个孩子的薄弱点。",
-          en: "Groups of 1–10 with limited spots, so each tutor can address every child's weak spots.",
+          zh: "每组 5–10 人，名额有限，老师能照顾到每个孩子的薄弱点。",
+          en: "Groups of 5–10 with limited spots, so each tutor can address every child's weak spots.",
         },
       },
       {
@@ -253,11 +279,14 @@ export const content = {
     title: { zh: "重要日期", en: "Key dates" },
     items: [
       {
-        date: { zh: "7 月 10 日", en: "July 10" },
-        label: { zh: "法语试听课（免费）· 上午 10:00–11:00", en: "Free trial French class · 10:00–11:00 AM" },
+        date: { zh: "7 月 30 日", en: "July 30" },
+        label: {
+          zh: "新项目说明会 & 数学免试听课 · 晚上 7:30–9:00",
+          en: "New Program Info Session & Free Math Trial Class · 7:30–9:00 PM",
+        },
         note: {
-          zh: "免费试听一节法语课，实际体验我们的授课方式。",
-          en: "A free trial French class so you can experience how we teach.",
+          zh: "届时我们将详细介绍全新推出的一般学科辅导项目（低年级），随后进行数学免费试听公开课，欢迎家长和孩子扫码报名参加。",
+          en: "We will introduce our brand new general tutoring program for younger grades, followed by a free math trial class. Parents and children are welcome to scan the QR code to register.",
         },
       },
     ] as { date: Bi; label: Bi; note: Bi }[],
@@ -279,22 +308,36 @@ export const content = {
     {
       q: { zh: "你们是怎么收费的？", en: "How do you charge?" },
       a: {
-        zh: "小组课程 20$/小时/科目。选1门20$，选2门40$，选3门45$（套餐优惠）。一对一价格因导师而异，请私信。",
-        en: "Group classes are $20/hour/subject. 1 subject $20, 2 subjects $40, 3 subjects $45 (bundle). One-on-one pricing varies by tutor; please message us.",
+        zh: "小组课程单科报名为每节课 $20。如果同时报名三门科目（仅限入学考试备考班），可享受折扣套餐价每节课 $15/科（每周共 $45）。一对一专属辅导价格因导师而异，请私信咨询。",
+        en: "Group classes are $20/class per subject. Enrolling in all three subjects (for the admission prep track only) unlocks our bundle rate of $15/class per subject ($45/week total). One-on-one pricing varies by tutor; please message us.",
+      },
+    },
+    {
+      q: { zh: "一般学科辅导和入学考试班有什么区别？", en: "What is the difference between general tutoring and the admission exam prep class?" },
+      a: {
+        zh: "一般学科辅导面向四年级及以下的学生，重点是打好基础、培养学习兴趣和习惯；入学考试班则专门针对三、四、五年级学生的入学考试做系统备考。",
+        en: "General academic tutoring is designed for students in grade 4 and below, focusing on building solid fundamentals, study habits, and learning interest. The admission exam prep classes are tailored specifically for students in grades 3–5 to systematically prepare for secondary school admission exams.",
       },
     },
     {
       q: { zh: "小班课通常有几个人？", en: "How many students are in a group class?" },
       a: {
-        zh: "我们将每组人数设定在1至10人，这样每个孩子都能得到足够的关注，学习效果更好。",
-        en: "We keep groups to 1–10 students so every child gets enough attention and learns better.",
+        zh: "我们将每组人数设定在 5 至 10 人，这样每个孩子都能得到足够的关注，学习效果更好。",
+        en: "We keep groups to 5–10 students so every child gets enough attention and learns better.",
       },
     },
     {
       q: { zh: "上课地点在哪里？", en: "Where are the classes held?" },
       a: {
-        zh: "上课地点正在确认中。我们计划安排线下教室，同时也提供线上课程，具体细节确认后通知。",
-        en: "The location is being finalized. We plan to hold in-person classes and also offer online sessions; we'll share details once confirmed.",
+        zh: "我们的课程完全在线上通过 Zoom 进行，方便家长和孩子，无需因路途奔波影响学习状态。",
+        en: "All classes are held fully online via Zoom, removing the hassle of commuting and helping students focus.",
+      },
+    },
+    {
+      q: { zh: "是线上还是线下上课？", en: "Are classes online or in person?" },
+      a: {
+        zh: "我们目前仅提供高品质的线上直播互动课程，通过精心设计的线上课件与互动工具，保证学习效果与线下一致甚至更佳。",
+        en: "We currently offer high-quality live interactive online classes only. With well-designed digital materials and tools, we ensure the learning outcomes are as effective as or better than in-person classes.",
       },
     },
     {
@@ -302,13 +345,6 @@ export const content = {
       a: {
         zh: "我们今年夏天开课，一直持续到九月新学年开始前。具体上课时间会在报名后同步。",
         en: "Classes run through this summer, up until the new school year begins around September. Exact dates are shared after you enrol.",
-      },
-    },
-    {
-      q: { zh: "是线上还是线下上课？", en: "Are classes online or in person?" },
-      a: {
-        zh: "线上、线下我们都提供，根据学生的情况安排：线上报名人数足够就开线上班，线下人数足够就开线下班。",
-        en: "We offer both online and in-person, arranged around what students need: if enough students sign up online we run an online class, and likewise for in-person.",
       },
     },
     {
@@ -335,8 +371,8 @@ export const content = {
     {
       q: { zh: "适合几年级的孩子？", en: "What grades is this for?" },
       a: {
-        zh: "主要适合小学三、四、五年级，准备中学入学考试的学生。特殊情况请私信。",
-        en: "Mainly primary grades 3, 4, and 5 preparing for the secondary admission exams. For special cases, please message us.",
+        zh: "主要适合小学三、四、五年级准备中学入学考试的学生，以及四年级及以下希望夯实学科基础、培养学习习惯的学生。特殊情况请私信联系。",
+        en: "Mainly primary grades 3, 4, and 5 preparing for the secondary admission exams, as well as grade 4 and below looking to build solid foundations and study habits. For special cases, please message us.",
       },
     },
   ] as { q: Bi; a: Bi }[],
@@ -367,8 +403,8 @@ export const content = {
       en: "Your contact details are used only to reach you about classes.",
     },
     copyright: {
-      zh: "© 2026 识途学辅 · 蒙特利尔升学辅导",
-      en: "© 2026 Tutela · Montreal admission-exam tutoring",
+      zh: "© 2026 识途学辅 · 蒙特利尔升学与学科辅导",
+      en: "© 2026 Tutela · Montreal Admission & Academic Tutoring",
     },
     privacyLink: { zh: "隐私政策", en: "Privacy Policy" },
     termsLink: { zh: "服务条款", en: "Terms of Service" },
