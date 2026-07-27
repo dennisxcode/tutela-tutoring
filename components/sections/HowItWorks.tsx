@@ -27,6 +27,20 @@ export function HowItWorks({ num = "02" }: { num?: string }) {
 
       <div className="mt-14">
         <h3 className="mb-4 font-serif text-xl font-semibold text-ink">
+          {t(content.schedule.title)}
+        </h3>
+        <ul className="divide-y divide-ink/10 border-y border-ink/10 mb-10">
+          {content.schedule.items.map((item, i) => (
+            <li key={i} className="flex items-center justify-between py-4">
+              <span className="text-body/90 font-medium">
+                {t(item.subject)}
+              </span>
+              <span className="font-serif text-base text-ink">{t(item.time)}</span>
+            </li>
+          ))}
+        </ul>
+
+        <h3 className="mb-4 font-serif text-xl font-semibold text-ink">
           {t(content.pricing.title)}
         </h3>
         <ul className="divide-y divide-ink/10 border-y border-ink/10">

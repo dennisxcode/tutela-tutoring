@@ -8,7 +8,7 @@ export function WhoItsFor({ num = "03" }: { num?: string }) {
   const { t } = useLanguage();
   return (
     <EditorialSection id="who" num={num} title={t(content.whoItsFor.title)} surface>
-      <p className="max-w-xl text-base leading-relaxed text-body/85">
+      <p className="max-w-xl text-base leading-relaxed text-body/85 whitespace-pre-line">
         {t(content.whoItsFor.body)}
       </p>
     </EditorialSection>

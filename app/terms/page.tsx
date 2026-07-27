@@ -17,7 +17,7 @@ export default function TermsPage() {
       <h1 className="mt-6 font-serif text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-[2.5rem]">
         Terms of Service
       </h1>
-      <p className="mt-2 text-sm text-body/50">Last updated: June 2, 2026</p>
+      <p className="mt-2 text-sm text-body/50">Last updated: July 26, 2026</p>
       <p className="mt-4 rounded-lg bg-cream px-4 py-3 text-sm text-body/70">
         本文件仅以英文提供。如有疑问，请通过微信与我们联系。
         <br />
@@ -47,11 +47,12 @@ export default function TermsPage() {
             <p>
               Tutela provides small-group tutoring for Quebec secondary school admission exams
               in the subjects of Math, French, and English, aimed at primary grades 3–5. We
-              also offer general academic tutoring and 1-on-1 sessions by private arrangement.
+              also offer general academic tutoring for grade 4 and below, focusing on fundamentals,
+              habits, and learning interest, as well as 1-on-1 sessions by private arrangement.
             </p>
             <p>
-              Classes run on Saturdays, 9:00 AM – 12:00 PM, in a combined in-person and online
-              format. Specific session details (location, platform) are communicated at enrollment.
+              Classes are conducted fully online via Zoom according to the schedule of each subject.
+              Specific session details and access links are communicated at enrollment.
             </p>
           </div>
         </section>
@@ -84,9 +85,9 @@ export default function TermsPage() {
           <div className="mt-3 space-y-4 text-base leading-relaxed">
             <p>Current group tutoring rates:</p>
             <ul className="ml-5 list-disc space-y-2">
-              <li>1 subject: $15 / hour</li>
-              <li>2 subjects: $30 / hour</li>
-              <li>3 subjects: $40 / hour (bundle discount)</li>
+              <li>Standalone subject: $20 / class per subject</li>
+              <li>2 subjects: $40 / class</li>
+              <li>3 subjects (bundle): $45 / class (which is $15/class per subject, applicable for admission test prep only)</li>
             </ul>
             <p>
               1-on-1 sessions are available by private arrangement; rates are set by the
