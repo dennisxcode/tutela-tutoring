@@ -17,7 +17,7 @@ export function ProgramHero() {
         className="pointer-events-none absolute right-[-10%] top-1/2 h-[26rem] w-auto -translate-y-1/2 text-ink/[0.10] sm:right-[2%]"
       />
       <div className="relative mx-auto max-w-content px-5 py-20 sm:py-24">
-        <p className="rise text-xs font-semibold uppercase tracking-[0.22em] text-accent" style={{ animationDelay: "200ms" }}>
+        <p className="rise text-xs font-semibold uppercase tracking-[0.22em] text-accent-deep" style={{ animationDelay: "200ms" }}>
           {t(content.program.tag)}
         </p>
         <h1

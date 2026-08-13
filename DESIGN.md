@@ -43,10 +43,20 @@ blueprint, and recurs as a quiet motif. Every design decision should feel
 - **Deep Green Ink `#1f4733`** — text, headings, the logo, dark sections. This is
   the near-black; **never use `#000000`.**
 - **Warm Charcoal `#2b2b28`** — body copy (often at 70–90% opacity).
-- **Terracotta `#c0532b`** — the **only** accent. Reserved for the primary CTA,
-  section numbers, and active/focus states. Muted, never neon. Do not spread it
-  across dots, bullets, and rules — when accent is everywhere it means nothing.
+- **Terracotta `#c0532b`** — the **only** accent hue. Reserved for the primary
+  CTA, section numbers, and active/focus states. Muted, never neon. Do not spread
+  it across dots, bullets, and rules — when accent is everywhere it means nothing.
+- The accent ships as **three values of the same hue** (a tonal ramp, not a second
+  accent). Pick by surface, for contrast:
+  - `accent #c0532b` — CTA fills only (white on it = 4.65:1).
+  - `accent-deep #b44a24` — small accent **text on cream/white** (4.98:1; the base
+    accent is 4.35:1 there and fails AA).
+  - `accent-light #e69a70` — accent text **on the deep-green panels** (4.59:1; the
+    base accent is 2.25:1 there and fails badly).
 - Borders/hairlines: deep-green ink at low alpha (`ink/10`–`ink/20`), never grey.
+- **Body text minimum:** `text-body/70` on cream and `text-white/75` on ink. Below
+  that, small text drops under WCAG AA — `body/60` and `white/40` measured 3.87:1
+  and 3.07:1 before they were raised.
 
 ## 5. Typography (the biggest lever)
 - **Headlines → `Noto Serif SC`** (Chinese serif, weight 500–700). This is what
@@ -83,6 +93,11 @@ text rising. Section headers reveal by **drawing their hairline rule**. The FAQ
   #1 AI-slop tell and must not be used. No bouncy springs, no parallax overload.
 - Animate only `transform` / `opacity` (GPU). Always honour
   `prefers-reduced-motion` (show content immediately, no animation).
+- **Anything that starts at `opacity: 0` needs a fallback that reveals it.**
+  `IntersectionObserver` does not fire in backgrounded or prerendered tabs, and
+  much of our traffic arrives through in-app browsers we can't test — without a
+  timeout, that copy is invisible, not merely un-animated. See
+  `EditorialSection.tsx`.
 
 ## 8. Components
 - **CTA:** one repeated action — `联系我 / Contact me` — terracotta fill, rounded,
@@ -93,7 +108,15 @@ text rising. Section headers reveal by **drawing their hairline rule**. The FAQ
 - **Contact:** WeChat QR (no backend) + a long-press/scan hint for mobile, since a
   parent on their phone can't scan their own screen.
 - **Announcement ribbon:** slim deep-green bar pinned at top for time-sensitive
-  dates.
+  dates. It reads from `content.dates.items`, shows the soonest **upcoming** event,
+  and falls back to a standing line when nothing is scheduled.
+- **Time-sensitive content never hardcodes a date in the markup.** Events carry an
+  ISO date and expire on their own (`lib/dates.ts`); the clock comes from the
+  client via `useNow`, because a statically-built page freezes `new Date()` at
+  build time and would keep advertising a date that has passed.
+- **Mobile CTA bar:** on phones the nav CTA is inside the burger menu, so a fixed
+  bottom bar carries the action after the hero scrolls away, and hides again when
+  the footer contact block is on screen.
 
 ## 9. Voice & content rules
 - Speak as **"we"** everywhere. The founder, **Dennis**, appears **only** in the

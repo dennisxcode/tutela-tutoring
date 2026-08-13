@@ -51,3 +51,14 @@ describe("claim safety (spec §5)", () => {
     expect(content.whatWeOffer.mockExams.en.toLowerCase()).toContain("coming soon");
   });
 });
+
+describe("event data", () => {
+  // Expiry works by string-comparing these against today's date, so a typo
+  // here would silently keep an event on the page forever (or hide it).
+  it("gives every event a YYYY-MM-DD date", () => {
+    for (const item of content.dates.items) {
+      expect(item.iso).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(Number.isNaN(Date.parse(item.iso))).toBe(false);
+    }
+  });
+});

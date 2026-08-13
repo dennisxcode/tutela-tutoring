@@ -20,11 +20,11 @@ export function FinalCta() {
         <h2 className="font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-[2.5rem]">
           {t(content.finalCta.heading)}
         </h2>
-        <p className="mx-auto mt-5 max-w-md text-white/70">{t(content.finalCta.subtitle)}</p>
+        <p className="mx-auto mt-5 max-w-md text-white/75">{t(content.finalCta.subtitle)}</p>
 
         <div className="mx-auto mt-12 max-w-sm rounded-2xl bg-white/5 p-8">
           <WeChatCta />
-          <p className="mt-4 text-center text-sm text-white/70">{t(content.footer.note)}</p>
+          <p className="mt-4 text-center text-sm text-white/80">{t(content.footer.note)}</p>
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-3">
@@ -32,22 +32,22 @@ export function FinalCta() {
             <Logo className="h-6 w-6" />
             <TutelaWordmark size="sm" />
           </span>
-          <p className="max-w-xs text-xs leading-relaxed text-white/50">
+          <p className="max-w-xs text-xs leading-relaxed text-white/75">
             {t(content.footer.privacy)}
           </p>
-          <div className="flex items-center gap-4 text-xs text-white/40">
-            <Link href="/privacy" className="hover:text-white/70 transition-colors">
+          <div className="flex items-center gap-4 text-xs text-white/75">
+            <Link href="/privacy" className="transition-colors hover:text-white">
               {t(content.footer.privacyLink)}
             </Link>
             <span aria-hidden>·</span>
-            <Link href="/terms" className="hover:text-white/70 transition-colors">
+            <Link href="/terms" className="transition-colors hover:text-white">
               {t(content.footer.termsLink)}
             </Link>
           </div>
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="mx-auto max-w-content px-5 py-5 text-center text-xs text-white/40">
+        <p className="mx-auto max-w-content px-5 py-5 text-center text-xs text-white/75">
           {t(content.footer.copyright)}
         </p>
       </div>

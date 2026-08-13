@@ -55,7 +55,8 @@ export function ScrollArch() {
   }, []);
 
   return (
-    <div className="fixed bottom-5 right-5 z-40" aria-hidden>
+    // Desktop only — on phones the bottom-right corner belongs to the CTA bar.
+    <div className="fixed bottom-5 right-5 z-40 hidden sm:block" aria-hidden>
       <svg viewBox="0 0 120 150" fill="none" className="h-10 w-10">
         {/* ghost arch — always visible as a guide */}
         <path

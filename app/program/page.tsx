@@ -20,6 +20,19 @@ export const metadata: Metadata = {
   },
 };
 
+// Nine answers to the questions parents actually type into a search box, marked
+// up so they can surface as rich results. Chinese is the indexed language, in
+// line with the rest of the page metadata.
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: content.faq.map((item) => ({
+    "@type": "Question",
+    name: item.q.zh,
+    acceptedAnswer: { "@type": "Answer", text: item.a.zh },
+  })),
+};
+
 // The deep page: what we teach in each class, how classes run, pricing, who it's
 // for, the tutors, why students improve, and the FAQ.
 export default function ProgramPage() {
@@ -32,6 +45,15 @@ export default function ProgramPage() {
       <Tutors num="04" />
       <Manifesto num="05" />
       <Faq num="06" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd)
+            .replace(/</g, "\\u003c")
+            .replace(/>/g, "\\u003e")
+            .replace(/&/g, "\\u0026"),
+        }}
+      />
     </>
   );
 }

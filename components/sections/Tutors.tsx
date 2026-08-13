@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 import { content, type Bi } from "@/lib/content";
 import { EditorialSection } from "@/components/EditorialSection";
@@ -41,25 +40,12 @@ const tutors: { label: Bi; line: Bi; Icon: () => JSX.Element }[] = [
   { label: { zh: "法语", en: "French" }, line: content.tutors.french, Icon: FrenchIcon },
 ];
 
+// The tutors' credentials are the only proof this service has, so they are
+// stated plainly and immediately. The list used to fade up on scroll with a
+// per-item delay — the staggered reveal the design brief bans outright — and
+// the section header's rule already carries this section's one motion.
 export function Tutors({ num = "04" }: { num?: string }) {
   const { t } = useLanguage();
-  const listRef = useRef<HTMLUListElement>(null);
-  const [shown, setShown] = useState(false);
-
-  useEffect(() => {
-    const reduce =
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || typeof IntersectionObserver === "undefined") { setShown(true); return; }
-    const el = listRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setShown(true); io.disconnect(); } },
-      { threshold: 0.15 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
 
   return (
     <EditorialSection
@@ -68,23 +54,15 @@ export function Tutors({ num = "04" }: { num?: string }) {
       title={t(content.tutors.title)}
       intro={t(content.subjects.special)}
     >
-      <ul ref={listRef} className="divide-y divide-ink/10 border-y border-ink/10">
+      <ul className="divide-y divide-ink/10 border-y border-ink/10">
         {tutors.map((tt, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-4 py-6 transition-all duration-700 ease-out"
-            style={{
-              transitionDelay: `${i * 120}ms`,
-              opacity: shown ? 1 : 0,
-              transform: shown ? "none" : "translateY(12px)",
-            }}
-          >
+          <li key={i} className="flex items-start gap-4 py-6">
             <span className="shrink-0">
               <tt.Icon />
             </span>
             <div>
               <h3 className="font-serif text-lg font-semibold text-ink">{t(tt.label)}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-body/75">{t(tt.line)}</p>
+              <p className="mt-1 text-base leading-relaxed text-body/85">{t(tt.line)}</p>
             </div>
           </li>
         ))}

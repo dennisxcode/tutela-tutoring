@@ -9,7 +9,7 @@ export function GuidesIndex() {
   const { t } = useLanguage();
   return (
     <div className="mx-auto max-w-content px-5 py-16 sm:py-20">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent-deep">
         {t(content.nav.guides)}
       </p>
       <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
@@ -22,7 +22,7 @@ export function GuidesIndex() {
         {guides.map((g) => (
           <li key={g.slug}>
             <Link href={`/guides/${g.slug}`} className="group block py-6">
-              <h2 className="font-serif text-xl font-semibold text-ink transition group-hover:text-accent">
+              <h2 className="font-serif text-xl font-semibold text-ink transition group-hover:text-accent-deep">
                 {t(g.title)}
               </h2>
               <p className="mt-2 text-base leading-relaxed text-body/70">{t(g.description)}</p>

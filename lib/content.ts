@@ -22,7 +22,7 @@ export const content = {
     viewProgram: { zh: "查看完整课程", en: "See the full program" },
     menu: { zh: "菜单", en: "Menu" },
     close: { zh: "关闭", en: "Close" },
-    backToTop: { zh: "返回顶部", en: "Back to top" },
+    seePricing: { zh: "查看收费与安排", en: "Pricing and schedule" },
   },
   guidesIndex: {
     title: { zh: "备考指南", en: "Prep Guides" },
@@ -31,45 +31,49 @@ export const content = {
       en: "Practical guides to Quebec's secondary admission exam, from students who've been through it themselves.",
     },
   },
+  // The ribbon shows the next upcoming dated event when there is one; otherwise
+  // it falls back to this standing line, so it can never display a dead date.
+  // The fallback is a promise rather than an announcement: a parent should never
+  // land here and wonder whether they can try before committing.
   announcement: {
-    zh: "7 月 10 日法语试听课",
-    en: "July 10 free trial French class",
+    evergreen: {
+      zh: "先免费试听，再决定报名",
+      en: "Try a free class first, then decide",
+    },
   },
   hero: {
     tag: { zh: "蒙特利尔 · 中学入学考试备考", en: "Montreal · Secondary admission exam prep" },
     title: { zh: "中学入学考试辅导", en: "Secondary Admission Exam Tutoring" },
     subtitle: {
-      zh: "我们是亲身经历过中学入学考试的尖子生，帮助孩子顺利通过考试。",
-      en: "We're top students who've sat the same admission exams, here to help your child pass theirs.",
+      zh: "我们是亲身经历过中学入学考试的尖子生，为小学三、四、五年级的孩子做小班备考。",
+      en: "We're top students who've sat the same admission exams, running small-group prep for children in primary grades 3, 4, and 5.",
+    },
+    // Sits directly under the CTA, where the decision actually happens — the
+    // ribbon gives way to dated events, so the promise needs a permanent home.
+    trialPromise: {
+      zh: "第一节课免费试听，孩子体验之后再决定是否报名。",
+      en: "Your first class is a free trial — decide after your child has sat in one.",
     },
   },
-  stats: [
-    { value: { zh: "1–10", en: "1–10" }, label: { zh: "人 / 每班", en: "per class" } },
-    { value: { zh: "3", en: "3" }, label: { zh: "门科目", en: "subjects" } },
-    { value: { zh: "周六", en: "Sat" }, label: { zh: "上午授课", en: "mornings" } },
-  ] as { value: Bi; label: Bi }[],
-  whyUs: {
-    title: { zh: "为什么选择我们", en: "Why choose us" },
-    points: [
-      {
-        zh: "我们亲身考过同样的入学考试，最清楚考什么、该怎么准备。",
-        en: "We've sat the same admission exams ourselves: we know exactly what they test and how to prepare.",
-      },
-      {
-        zh: "导师均就读于魁北克顶尖中学，包括 Collège Jean-de-Brébeuf。",
-        en: "Our tutors all attend top Quebec secondary schools, including Collège Jean-de-Brébeuf.",
-      },
-      {
-        zh: "1–10 人小班，名额有限，确保每个孩子都得到充分关注。",
-        en: "Small classes of 1–10 with limited spots, so every child gets real attention.",
-      },
-    ] as Bi[],
-  },
+  // Quick facts, as outlined chips under the hero — the things a parent skimming
+  // from WeChat or RED wants before they decide to read further.
+  facts: [
+    { zh: "周六上午 9:00–12:00", en: "Saturdays 9:00–12:00" },
+    { zh: "1–10 人小班", en: "Groups of 1–10" },
+    { zh: "$20 / 科目 · 小时", en: "$20 per subject / hour" },
+    { zh: "课后随时答疑", en: "Questions answered anytime" },
+  ] as Bi[],
   whoWeAre: {
     title: { zh: "关于我们", en: "Who we are" },
     body: {
       zh: "我们是来自魁北克顶尖中学的学生，包括 Collège Jean-de-Brébeuf。我们走过了中学入学考试这条路，希望把自己的备考经验，分享给正在准备的孩子和家庭。",
       en: "We're students from top Quebec secondary schools, including Collège Jean-de-Brébeuf. We've been through the secondary admission exams ourselves, and we want to share what we learned with the children and families preparing for them now.",
+    },
+    // One verifiable credential line, surfaced on the home page — trust comes
+    // from specifics we can stand behind, not from claims we can't.
+    credential: {
+      zh: "数学导师在 AMC 与 Waterloo（CEMC）数学竞赛中名列前茅；法语导师多次获得 Brébeuf 写作比赛奖项。",
+      en: "Our math tutor places among the top in the AMC and Waterloo (CEMC) contests; our French tutor has won Brébeuf writing competitions multiple times.",
     },
   },
   whatWeOffer: {
@@ -107,6 +111,10 @@ export const content = {
   },
   pricing: {
     title: { zh: "收费", en: "Pricing" },
+    intro: {
+      zh: "按科目收费，每科每小时 $20。三门一起报名有套餐价。",
+      en: "Priced per subject at $20 per hour, with a bundle rate for all three.",
+    },
     rows: [
       { label: { zh: "选 1 门", en: "1 subject" }, price: "$20" },
       { label: { zh: "选 2 门", en: "2 subjects" }, price: "$40" },
@@ -116,6 +124,7 @@ export const content = {
       zh: "建议参加全部三门课，效果更全面，也更划算。",
       en: "We recommend all three subjects: more complete preparation, better value.",
     },
+    unit: { zh: "每小时", en: "per hour" },
   },
   whoItsFor: {
     title: { zh: "适合谁", en: "Who it's for" },
@@ -217,7 +226,55 @@ export const content = {
       zh: "我们的每一节课都围绕中学入学考试展开：把每一科最关键的内容讲清楚，再带孩子练扎实。下面是三门核心科目我们会重点覆盖的部分，以及上课、收费和报名的具体安排。",
       en: "Every class is built around the secondary admission exam. For each subject we make the key material clear, then practise it until it's solid. Below is what we focus on in the three core subjects, plus how classes, pricing, and enrolment work.",
     },
-    coversLabel: { zh: "我们会覆盖", en: "What we cover" },
+  },
+  // The seasonal spine of the whole thing: the exam lands early in Grade 6, so
+  // the useful preparation window is Grade 5. Stages are deliberately described
+  // as the general pattern — school-specific dates are never asserted.
+  timeline: {
+    title: { zh: "备考时间线", en: "The prep timeline" },
+    intro: {
+      zh: "入学考试通常在六年级开学后不久举行，考的却是五年级的内容。也就是说，真正有效的准备窗口，在考试之前的那一年。",
+      en: "The admission exam usually falls shortly after Grade 6 begins, but it tests Grade 5 material. The window where preparation actually pays off is the year before the exam.",
+    },
+    stages: [
+      {
+        when: { zh: "五年级全年", en: "Through Grade 5" },
+        title: { zh: "打基础", en: "Build the foundation" },
+        body: {
+          zh: "跟上学校进度，重点打牢法语与数学基础，尽早发现并补上薄弱环节。",
+          en: "Keep up with school, build solid French and Math foundations, and find and fix weak spots early.",
+        },
+      },
+      {
+        when: { zh: "暑假至六年级开学", en: "Summer into Grade 6" },
+        title: { zh: "熟悉题型", en: "Learn the format" },
+        body: {
+          zh: "开始接触真实题型与模拟练习，让孩子适应考试节奏，同时确认目标学校的报名日期。",
+          en: "Start working with real question types and mock papers so your child adjusts to the pace, and confirm each target school's registration dates.",
+        },
+      },
+      {
+        when: { zh: "六年级九月至十月", en: "September–October, Grade 6" },
+        title: { zh: "考试期", en: "Exam window" },
+        body: {
+          zh: "多数学校在这段时间安排入学考试，重点转为查漏补缺与稳定心态。",
+          en: "Most schools hold their admission exams in this window; the focus shifts to closing gaps and staying steady.",
+        },
+      },
+      {
+        when: { zh: "十二月前后", en: "Around December" },
+        title: { zh: "放榜", en: "Results" },
+        body: {
+          zh: "录取结果陆续公布。更低年级的孩子，这时正好是开始打基础的时候。",
+          en: "Results are released. For children in earlier grades, this is exactly when foundation-building should begin.",
+        },
+      },
+    ] as { when: Bi; title: Bi; body: Bi }[],
+    note: {
+      zh: "以上是普遍规律。每所学校自行命题、自行招生，具体报名与考试日期请以各校官方公布为准。",
+      en: "This is the general pattern. Each school sets its own exam and admissions, so confirm registration and exam dates with each school directly.",
+    },
+    nowLabel: { zh: "现在", en: "Now" },
   },
   philosophy: {
     title: { zh: "为什么学生会进步", en: "Why students improve" },
@@ -251,16 +308,25 @@ export const content = {
   },
   dates: {
     title: { zh: "重要日期", en: "Key dates" },
-    items: [
-      {
-        date: { zh: "7 月 10 日", en: "July 10" },
-        label: { zh: "法语试听课（免费）· 上午 10:00–11:00", en: "Free trial French class · 10:00–11:00 AM" },
-        note: {
-          zh: "免费试听一节法语课，实际体验我们的授课方式。",
-          en: "A free trial French class so you can experience how we teach.",
-        },
+    // Shown instead of the dates list when nothing upcoming is scheduled, so the
+    // section is always useful and never displays an expired event.
+    standingTitle: { zh: "下一步", en: "Next steps" },
+    // Add events here with an ISO date; past ones disappear on their own.
+    // Example:
+    // {
+    //   iso: "2026-09-05",
+    //   date: { zh: "9 月 5 日", en: "September 5" },
+    //   label: { zh: "法语试听课（免费）· 上午 10:00–11:00", en: "Free trial French class · 10:00–11:00 AM" },
+    //   note: { zh: "免费试听一节法语课。", en: "A free trial French class." },
+    // },
+    items: [] as { iso: string; date: Bi; label: Bi; note: Bi }[],
+    trial: {
+      title: { zh: "免费试听课", en: "Free trial class" },
+      body: {
+        zh: "想先看看我们怎么上课？私信我们安排一节免费试听，孩子实际体验后再决定。",
+        en: "Want to see how we teach first? Message us to arrange a free trial class, and decide after your child has actually sat in one.",
       },
-    ] as { date: Bi; label: Bi; note: Bi }[],
+    },
   },
   enrol: {
     title: { zh: "报名流程", en: "How to enrol" },
@@ -298,10 +364,17 @@ export const content = {
       },
     },
     {
+      q: { zh: "可以先试听吗？", en: "Can we try a class first?" },
+      a: {
+        zh: "可以。我们提供免费试听课，私信我们安排时间，孩子体验过之后再决定是否报名。",
+        en: "Yes. We offer a free trial class: message us to arrange a time, and decide whether to enrol after your child has experienced one.",
+      },
+    },
+    {
       q: { zh: "什么时候开课？", en: "When does tutoring run?" },
       a: {
-        zh: "我们今年夏天开课，一直持续到九月新学年开始前。具体上课时间会在报名后同步。",
-        en: "Classes run through this summer, up until the new school year begins around September. Exact dates are shared after you enrol.",
+        zh: "我们全年开班，按年级和报名人数分组。具体上课时间会在报名后同步，也可以私信我们了解当前正在开的班。",
+        en: "We run classes year-round, grouped by grade and enrolment. Exact times are shared after you enrol; message us to ask which groups are running right now.",
       },
     },
     {
@@ -347,18 +420,24 @@ export const content = {
       en: "Message us on WeChat to learn more and get started.",
     },
   },
+  notFound: {
+    title: { zh: "页面不存在", en: "Page not found" },
+    body: {
+      zh: "这个链接可能已经失效，或者地址输错了。",
+      en: "This link may no longer exist, or the address was mistyped.",
+    },
+    home: { zh: "返回首页", en: "Back to home" },
+  },
   footer: {
     cta: { zh: "扫码联系我", en: "Scan to contact me" },
-    scanHint: {
-      zh: "扫一扫，添加微信咨询与报名。",
-      en: "Scan to add us on WeChat for questions and enrolment.",
-    },
     qrHelp: {
       zh: "手机访问：在微信中长按二维码即可识别；或截图保存后用「扫一扫」从相册识别。",
       en: "On a phone: long-press the QR in WeChat to recognise it, or save a screenshot and scan it from your album.",
     },
     wechatIdLabel: { zh: "微信号", en: "WeChat ID" },
     wechatId: { zh: "wxid_qs6tqmt94en122", en: "wxid_qs6tqmt94en122" },
+    copyHint: { zh: "点击复制", en: "Tap to copy" },
+    copied: { zh: "已复制", en: "Copied" },
     contactLabel: { zh: "联系人", en: "Contact" },
     contactName: "Dennis",
     note: { zh: "有问题欢迎私信。", en: "Message us with any questions." },

@@ -21,12 +21,15 @@ export function Subjects({ num = "01" }: { num?: string }) {
           <div key={i} className="py-7 sm:flex sm:gap-8">
             <div className="sm:w-40 sm:shrink-0">
               <h3 className="font-serif text-2xl font-semibold text-ink">{t(s.name)}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-body/65">{t(s.blurb)}</p>
+              <p className="mt-1 text-sm leading-relaxed text-body/80">{t(s.blurb)}</p>
             </div>
+            {/* Check marks are ink, not terracotta: the accent belongs to the
+                CTA and section numbers, and spreading it across every bullet is
+                what drains it of meaning. */}
             <ul className="mt-4 grid gap-x-8 gap-y-2 sm:mt-0 sm:flex-1 sm:grid-cols-2">
               {s.covers.map((c, j) => (
-                <li key={j} className="flex items-start gap-2 text-[0.95rem] leading-relaxed text-body/80">
-                  <Check size={15} className="mt-1 shrink-0 text-accent" aria-hidden />
+                <li key={j} className="flex items-start gap-2 text-[0.95rem] leading-relaxed text-body/85">
+                  <Check size={15} className="mt-1 shrink-0 text-ink/45" aria-hidden />
                   {t(c)}
                 </li>
               ))}

@@ -8,6 +8,7 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { SiteNav } from "@/components/SiteNav";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { ScrollArch } from "@/components/ScrollArch";
+import { MobileCtaBar } from "@/components/MobileCtaBar";
 
 // CJK fonts: do NOT pass `subsets` and set `preload: false`, otherwise
 // next/font errors ("Missing selected font subset") at build.
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: content.meta.title.zh,
   description: content.meta.description.zh,
+  // The site is reachable on both the custom domain and the vercel.app
+  // subdomain; the canonical keeps them from competing as duplicates.
+  alternates: { canonical: "/" },
   // app/opengraph-image.png is picked up automatically as og:image.
   openGraph: {
     title: content.meta.title.zh,
@@ -51,6 +55,11 @@ export const metadata: Metadata = {
     siteName: "Tutela",
     locale: "zh_CN",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: content.meta.title.zh,
+    description: content.meta.description.zh,
   },
 };
 
@@ -80,6 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <FinalCta />
           <ScrollArch />
+          <MobileCtaBar />
         </LanguageProvider>
         <Analytics />
         <script

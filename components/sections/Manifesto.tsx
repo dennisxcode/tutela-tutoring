@@ -20,7 +20,7 @@ export function Manifesto({ num = "05" }: { num?: string }) {
       />
 
       <div className="relative z-10 mx-auto max-w-content px-5 pb-24 pt-28 sm:pb-32 sm:pt-44">
-        <p className="font-display text-xl italic text-accent">{num}</p>
+        <p className="font-display text-xl italic text-accent-light">{num}</p>
         <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-[2.5rem]">
           {t(content.philosophy.title)}
         </h2>
@@ -31,7 +31,7 @@ export function Manifesto({ num = "05" }: { num?: string }) {
         <div className="mt-16 grid gap-10 sm:grid-cols-3">
           {content.philosophy.principles.map((p, i) => (
             <div key={i}>
-              <div className="font-display text-2xl italic text-accent">
+              <div className="font-display text-2xl italic text-accent-light">
                 {String(i + 1).padStart(2, "0")}
               </div>
               <h3 className="mt-3 font-serif text-lg font-semibold">{t(p.title)}</h3>

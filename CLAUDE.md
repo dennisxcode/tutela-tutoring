@@ -48,13 +48,17 @@ Jean-de-Brébeuf). Single scrolling page, mobile-first.
   `components/Logo.tsx` and `app/icon.svg` (favicon).
 - Design tokens (Tailwind `theme.extend.colors`):
   - `cream #faf7f2` (background) · `ink #1f4733` (deep green, headings/logo)
-  - `accent #c0532b` (warm orange, CTA/accents) · `body #2b2b28`
-  - `max-w-content` = 42rem.
+  - `accent #c0532b` (CTA fills only) · `accent-deep #b44a24` (small accent text
+    on cream) · `accent-light #e69a70` (accent text on the deep-green panels) —
+    one hue, three values, chosen for WCAG AA. See DESIGN.md §4.
+  - `body #2b2b28` · `max-w-content` = 42rem.
 
 ## Workflow
 - **Dev:** `npm run dev` · **Build:** `npm run build` · **Test:** `npm test`
-- **Deploy:** Vercel production (`vercel --prod --yes`); live at
-  `https://webtutela.vercel.app`.
+- **Deploy:** Vercel production (`vercel --prod --yes`). Live at
+  `https://tutelamtl.ca` — that's the canonical domain in metadata, sitemap, and
+  robots. `webtutela.vercel.app` still serves the same site and should be
+  redirected to the custom domain in the Vercel project settings.
 - **Git:** repo `github.com/dennisxcode/tutoring-site`, branch `main`. Commit only
   when asked. **Attribute commits to Dennis only — no Claude co-author trailer.**
 

@@ -44,16 +44,29 @@ export function EditorialSection({
       { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Safety net: the intro starts at opacity 0, so if the observer never fires
+    // the copy would stay invisible forever. Backgrounded and prerendered tabs
+    // do exactly that, and much of our traffic arrives through in-app browsers
+    // we can't test. Reveal regardless after a beat.
+    const fallback = window.setTimeout(() => {
+      setShown(true);
+      io.disconnect();
+    }, 1200);
+
+    return () => {
+      window.clearTimeout(fallback);
+      io.disconnect();
+    };
   }, []);
 
   return (
     <section id={id} className={surface ? "bg-white" : "bg-cream"}>
-      <div ref={ref} className="mx-auto max-w-content px-5 py-20 sm:py-28">
-        <header className="mb-12">
+      <div ref={ref} className="mx-auto max-w-content px-5 py-20 sm:py-24">
+        <header className="mb-10">
           <SegmentedArch strokeWidth={1.6} className="mb-4 h-8 w-7 text-ink/35" />
           <div className="flex items-baseline gap-4">
-            <span className="font-display text-xl font-semibold italic text-accent">{num}</span>
+            <span className="font-display text-xl font-semibold italic text-accent-deep">{num}</span>
             <h2 className="font-serif text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-[2.5rem]">
               {title}
             </h2>
@@ -65,7 +78,7 @@ export function EditorialSection({
           />
           {intro && (
             <p
-              className={`mt-6 max-w-xl text-lg leading-relaxed text-body/70 transition-all duration-700 ease-out ${
+              className={`mt-6 max-w-xl text-lg leading-relaxed text-body/80 transition-all duration-700 ease-out ${
                 shown ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
               }`}
             >

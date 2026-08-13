@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-content px-5 py-14 sm:py-20">
-      <Link href="/" className="text-sm font-medium text-accent hover:underline">
+      <Link href="/" className="text-sm font-medium text-accent-deep hover:underline">
         ← Home
       </Link>
 
       <h1 className="mt-6 font-serif text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-[2.5rem]">
         Privacy Policy
       </h1>
-      <p className="mt-2 text-sm text-body/50">Last updated: June 2, 2026</p>
+      <p className="mt-2 text-sm text-body/75">Last updated: June 2, 2026</p>
       <p className="mt-4 rounded-lg bg-cream px-4 py-3 text-sm text-body/70">
         本文件仅以英文提供。如有疑问，请通过微信与我们联系。
         <br />
@@ -215,8 +215,8 @@ export default function PrivacyPage() {
       </div>
 
       <div className="mt-16 border-t border-body/10 pt-8 flex gap-6 text-sm">
-        <Link href="/" className="text-accent hover:underline">Home</Link>
-        <Link href="/terms" className="text-accent hover:underline">Terms of Service</Link>
+        <Link href="/" className="text-accent-deep hover:underline">Home</Link>
+        <Link href="/terms" className="text-accent-deep hover:underline">Terms of Service</Link>
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ export function SiteNav() {
               href={l.href}
               aria-current={isActive(l.href) ? "page" : undefined}
               className={`relative text-sm font-medium transition hover:text-ink ${
-                isActive(l.href) ? "text-ink" : "text-ink/70"
+                isActive(l.href) ? "text-ink" : "text-ink/85"
               }`}
             >
               {t(l.label)}
@@ -79,8 +79,13 @@ export function SiteNav() {
       </nav>
 
       {/* mobile menu sheet */}
+      {/* Collapsing the grid rows hides the sheet visually but leaves its links
+          in the accessibility tree and the tab order, so `inert` closes it for
+          keyboard and screen-reader users too. */}
       <div
         id="mobile-menu"
+        aria-hidden={!open}
+        {...({ inert: open ? undefined : "true" } as Record<string, unknown>)}
         className={`grid overflow-hidden border-t border-ink/10 bg-cream transition-[grid-template-rows] duration-300 ease-out sm:hidden ${
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr] border-t-0"
         }`}
@@ -93,7 +98,7 @@ export function SiteNav() {
                 href={l.href}
                 aria-current={isActive(l.href) ? "page" : undefined}
                 className={`flex items-center justify-between border-b border-ink/10 py-4 text-lg font-medium ${
-                  isActive(l.href) ? "text-accent" : "text-ink"
+                  isActive(l.href) ? "text-accent-deep" : "text-ink"
                 }`}
               >
                 {t(l.label)}

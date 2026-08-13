@@ -9,7 +9,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
   const { t } = useLanguage();
   return (
     <article className="mx-auto max-w-content px-5 py-14 sm:py-20">
-      <Link href="/guides" className="text-sm font-medium text-accent hover:underline">
+      <Link href="/guides" className="text-sm font-medium text-accent-deep hover:underline">
         ← {t(content.nav.guides)}
       </Link>
       <h1 className="mt-6 font-serif text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-[2.5rem]">
