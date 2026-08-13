@@ -1,3 +1,10 @@
+// `next dev` compiles modules through eval() for hot reloading, so a CSP without
+// 'unsafe-eval' stops the dev bundle dead: React never hydrates and nothing
+// interactive works on localhost — no language toggle, no FAQ accordion, no
+// mobile menu — while the production build, which contains no eval, is fine.
+// Dev gets the escape hatch; production keeps the strict policy.
+const isDev = process.env.NODE_ENV !== "production";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
@@ -15,11 +22,14 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",
+              // va.vercel-scripts.com serves @vercel/analytics. Without it the
+              // CSP blocked the script outright, so the Analytics component in
+              // the layout has never actually recorded anything.
+              `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${isDev ? " 'unsafe-eval'" : ""}`,
               "style-src 'self' 'unsafe-inline'",
               "font-src 'self' data:",
               "img-src 'self' data:",
-              "connect-src 'self' https://vitals.vercel-insights.com",
+              "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com",
               "frame-ancestors 'none'",
             ].join("; "),
           },
