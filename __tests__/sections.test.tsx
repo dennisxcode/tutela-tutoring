@@ -7,23 +7,44 @@ import { Timeline } from "@/components/sections/Timeline";
 import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
 import { content } from "@/lib/content";
+import { upcoming } from "@/lib/dates";
 
 function withProvider(ui: React.ReactNode) {
   return render(<LanguageProvider>{ui}</LanguageProvider>);
 }
 
+// These assert the branch that matches the shipped schedule, so adding a real
+// future event to content.ts changes which branch runs without failing the
+// suite — a content edit should never break a test that isn't about content.
+const scheduled = upcoming(content.dates.items, new Date());
+
 describe("time-sensitive content", () => {
   beforeEach(() => localStorage.clear());
 
-  it("falls back to the standing line when nothing is scheduled", () => {
+  it("shows the next event, or the standing line when nothing is scheduled", () => {
     withProvider(<AnnouncementBar />);
-    expect(screen.getByText(content.announcement.evergreen.zh)).toBeInTheDocument();
+    const expected = scheduled.length
+      ? new RegExp(scheduled[0].date.zh)
+      : new RegExp(content.announcement.evergreen.zh);
+    expect(screen.getByText(expected)).toBeInTheDocument();
   });
 
-  it("offers the trial and the enrolment steps instead of an empty dates list", () => {
+  it("never shows an event whose date has passed", () => {
+    withProvider(<AnnouncementBar />);
+    const past = content.dates.items.filter((i) => !scheduled.includes(i));
+    past.forEach((p) => {
+      expect(screen.queryByText(new RegExp(p.label.zh))).not.toBeInTheDocument();
+    });
+  });
+
+  it("always offers a route forward, dated or not", () => {
     withProvider(<KeyDates />);
-    expect(screen.getByText(content.dates.trial.title.zh)).toBeInTheDocument();
-    expect(screen.getByText(content.dates.standingTitle.zh)).toBeInTheDocument();
+    if (scheduled.length) {
+      expect(screen.getByText(content.dates.title.zh)).toBeInTheDocument();
+    } else {
+      expect(screen.getByText(content.dates.trial.title.zh)).toBeInTheDocument();
+      expect(screen.getByText(content.dates.standingTitle.zh)).toBeInTheDocument();
+    }
     content.enrol.steps.forEach((s) => {
       expect(screen.getByText(s.zh)).toBeInTheDocument();
     });

@@ -37,13 +37,13 @@ describe("claim safety (spec §5)", () => {
     expect(content.tutors.math.en.toLowerCase()).not.toContain("#1");
   });
 
-  it("location is framed as being finalized, not asserted at a school", () => {
+  it("location is framed as fully online via Zoom, not asserted at a school", () => {
     const locationFaq = content.faq.find((f) => f.q.zh.includes("地点"));
     expect(locationFaq).toBeDefined();
-    expect(content.howItWorks.body.zh).toContain("确认中");
-    expect(content.howItWorks.body.en).toContain("being finalized");
-    expect(locationFaq!.a.zh).toContain("确认中");
-    expect(locationFaq!.a.en).toContain("being finalized");
+    expect(content.howItWorks.body.zh).toContain("Zoom");
+    expect(content.howItWorks.body.en).toContain("Zoom");
+    expect(locationFaq!.a.zh).toContain("Zoom");
+    expect(locationFaq!.a.en).toContain("Zoom");
   });
 
   it("mock exams are framed as upcoming, not live", () => {

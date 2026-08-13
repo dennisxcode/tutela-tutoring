@@ -20,12 +20,12 @@ describe("home page", () => {
 
   it("renders the Chinese hero by default", () => {
     render(<Home />);
-    expect(screen.getAllByText("中学入学考试辅导").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("打牢基础，启发兴趣，从容应对挑战").length).toBeGreaterThan(0);
   });
 
   it("switches to English when EN is selected", () => {
     render(<Home />);
     fireEvent.click(screen.getByText("EN"));
-    expect(screen.getByText("Secondary Admission Exam Tutoring")).toBeInTheDocument();
+    expect(screen.getByText("Build Strong Fundamentals, Inspire Genuine Interest")).toBeInTheDocument();
   });
 });
