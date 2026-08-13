@@ -1,9 +1,16 @@
 import { defineConfig } from "vitest/config";
-import react from "@vitejs/plugin-react";
 import path from "node:path";
 
+// Vitest 4 runs on Vite 8, which transforms with oxc rather than esbuild, and
+// handles JSX itself. The old setup added @vitejs/plugin-react, but that plugin
+// pinned its own Vite 5 — so its JSX transform was never applied to the files
+// Vitest actually loaded, and every .tsx suite failed to parse. Configuring oxc
+// directly is both the fix and one fewer dependency.
+//
+// `jsx.runtime` has to be set here because tsconfig.json declares
+// `"jsx": "preserve"`, which Next requires and which leaves JSX untransformed.
 export default defineConfig({
-  plugins: [react()],
+  oxc: { jsx: { runtime: "automatic" } },
   test: {
     environment: "jsdom",
     globals: true,
