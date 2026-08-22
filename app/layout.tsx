@@ -9,6 +9,9 @@ import { SiteNav } from "@/components/SiteNav";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { ScrollArch } from "@/components/ScrollArch";
 import { MobileCtaBar } from "@/components/MobileCtaBar";
+import { JsonLd } from "@/components/JsonLd";
+import { siteJsonLd } from "@/lib/schema";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 // CJK fonts: do NOT pass `subsets` and set `preload: false`, otherwise
 // next/font errors ("Missing selected font subset") at build.
@@ -37,16 +40,21 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
 });
 
-
-const siteUrl = "https://tutelamtl.ca";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: content.meta.title.zh,
   description: content.meta.description.zh,
   // The site is reachable on both the custom domain and the vercel.app
   // subdomain; the canonical keeps them from competing as duplicates.
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    // Every page has a Markdown twin (see middleware.ts); advertising it lets a
+    // crawler find it without guessing at the Accept header.
+    types: { "text/markdown": "/index.md" },
+  },
+  // "Tutela" alone is a common Latin word, so the searchable name is stated in
+  // both scripts wherever a search engine reads one.
+  applicationName: "Tutela 识途学辅",
   // app/opengraph-image.png is picked up automatically as og:image.
   openGraph: {
     title: content.meta.title.zh,
@@ -61,17 +69,6 @@ export const metadata: Metadata = {
     title: content.meta.title.zh,
     description: content.meta.description.zh,
   },
-};
-
-// Structured data — a quiet legitimacy signal for search engines.
-const orgJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  name: "Tutela",
-  description: content.meta.description.en,
-  url: siteUrl,
-  areaServed: "Montreal, Quebec, Canada",
-  knowsLanguage: ["zh", "en", "fr"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -92,10 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <MobileCtaBar />
         </LanguageProvider>
         <Analytics />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026") }}
-        />
+        <JsonLd data={siteJsonLd} />
       </body>
     </html>
   );

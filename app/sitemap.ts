@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides";
-
-const siteUrl = "https://tutelamtl.ca";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -17,6 +16,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/about`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: `${siteUrl}/contact`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.7,
     },
     {
       url: `${siteUrl}/guides`,

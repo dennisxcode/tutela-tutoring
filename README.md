@@ -6,7 +6,8 @@ those exams*. It exists so parents get a clear, trustworthy picture of the servi
 (who teaches, what's covered, the price, the dates, how to enrol) and reach out on
 WeChat — without the founder answering the same questions over and over.
 
-**Live:** https://webtutela.vercel.app
+**Live:** https://tutelamtl.ca — the canonical domain. `webtutela.vercel.app`
+serves the same site and should redirect here.
 
 - **Simplified Chinese by default**, with a **中文 / EN** toggle.
 - Headlines are **language-aware**: Noto Serif SC for Chinese, Fraunces for English.
@@ -76,12 +77,44 @@ components/sections/ Hero, CredibilityBar, Subjects, HowItWorks, Manifesto,
                      Tutors, KeyDates, Faq, FinalCta
 lib/content.ts       all bilingual copy (single source of truth)
 lib/LanguageContext  language state + toggle + persistence
+lib/site.ts          the canonical origin, used by every URL the site emits
+lib/agent.ts         llms.txt, the Markdown twin of each page, the Markdown 404
+lib/accept.ts        Accept-header parsing for the Markdown/HTML negotiation
+lib/schema.ts        the JSON-LD graph (Organization + WebSite + page nodes)
+middleware.ts        content negotiation + Vary for every document route
 public/              WeChat QR image
 __tests__/           content (incl. claim-safety), language, and page tests
 docs/                DESIGN-JOURNAL.md + the design specs
 DESIGN.md            the design system / brief
 CLAUDE.md            project config for AI assistants
 ```
+
+## Discoverability & the agent surface
+
+Parents arrive from WeChat and RED; everyone else arrives through a search engine
+or an AI assistant. Those readers are served deliberately:
+
+- **The brand name is written in both scripts.** "Tutela" alone is a common Latin
+  word, so `Tutela 识途学辅` appears in the page title, the description, the footer
+  and the structured data — a search for either half has something of ours to rank.
+  Name, area served, format and contact are worded identically in the footer, on
+  `/about`, on `/contact` and in the JSON-LD (`components/NapCard.tsx`).
+- **`/llms.txt`** (`lib/agent.ts`) says what this site is, **when an agent should
+  reach for it**, when it should send someone elsewhere, and how to call it —
+  there is no API, and the only contact path is WeChat.
+- **Every page has a Markdown twin.** Send `Accept: text/markdown`, or append
+  `.md` to any path (`/program.md`, `/index.md`). `middleware.ts` negotiates and
+  answers with `Vary: Accept, Accept-Encoding`; `.md` URLs carry `noindex` so they
+  can't compete with the canonical HTML.
+- **404s are real 404s** with a short Markdown index pointing at the sitemap,
+  `llms.txt` and the main sections — never a 200 that tells a crawler every path
+  exists.
+- **Trust anchors:** `/about`, `/contact` and `/privacy` are the pages an agent
+  checks before recommending a business; all three are substantive and bilingual
+  (`/privacy` excepted — English only, and `noindex`).
+- **Structured data** is one `@graph` (`lib/schema.ts`): an `Organization` /
+  `EducationalOrganization` node plus a `WebSite` node, with the guides' `Article`
+  data and the FAQ pointing back at the same `@id`.
 
 ## Claim-safety (enforced by `__tests__/content.test.ts`)
 

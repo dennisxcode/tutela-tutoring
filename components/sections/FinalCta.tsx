@@ -8,6 +8,7 @@ import { Logo } from "@/components/Logo";
 import { TutelaWordmark } from "@/components/TutelaWordmark";
 import { SegmentedArch } from "@/components/SegmentedArch";
 import { ArchTop } from "@/components/ArchTop";
+import { NapCard } from "@/components/NapCard";
 
 export function FinalCta() {
   const { t } = useLanguage();
@@ -27,6 +28,18 @@ export function FinalCta() {
           <p className="mt-4 text-center text-sm text-white/80">{t(content.footer.note)}</p>
         </div>
 
+        {/* Name, area served, format and contact, worded exactly as they are on
+            /about, /contact and in the structured data — the repetition is the
+            point: it is what makes the brand resolvable across listings. */}
+        <div className="mx-auto mt-14 max-w-sm border-t border-white/10 pt-8 text-left">
+          <h2 className="text-center font-serif text-sm italic text-accent-light">
+            {t(content.footer.napTitle)}
+          </h2>
+          <div className="mt-4">
+            <NapCard tone="dark" />
+          </div>
+        </div>
+
         <div className="mt-12 flex flex-col items-center gap-3">
           <span className="flex items-center gap-2 text-white">
             <Logo className="h-6 w-6" />
@@ -35,7 +48,15 @@ export function FinalCta() {
           <p className="max-w-xs text-xs leading-relaxed text-white/75">
             {t(content.footer.privacy)}
           </p>
-          <div className="flex items-center gap-4 text-xs text-white/75">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-white/75">
+            <Link href="/about" className="transition-colors hover:text-white">
+              {t(content.nav.about)}
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/contact" className="transition-colors hover:text-white">
+              {t(content.nav.contactPage)}
+            </Link>
+            <span aria-hidden>·</span>
             <Link href="/privacy" className="transition-colors hover:text-white">
               {t(content.footer.privacyLink)}
             </Link>

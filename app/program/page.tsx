@@ -7,6 +7,7 @@ import { WhoItsFor } from "@/components/sections/WhoItsFor";
 import { Tutors } from "@/components/sections/Tutors";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { Faq } from "@/components/sections/Faq";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: `${content.program.title.zh} · 课程 | Tutela`,
@@ -45,15 +46,7 @@ export default function ProgramPage() {
       <Tutors num="04" />
       <Manifesto num="05" />
       <Faq num="06" />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqJsonLd)
-            .replace(/</g, "\\u003c")
-            .replace(/>/g, "\\u003e")
-            .replace(/&/g, "\\u0026"),
-        }}
-      />
+      <JsonLd data={faqJsonLd} />
     </>
   );
 }

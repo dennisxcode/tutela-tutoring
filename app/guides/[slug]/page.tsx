@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { guides, getGuide } from "@/lib/guides";
 import { GuideArticle } from "@/components/guides/GuideArticle";
-
-const siteUrl = "https://tutelamtl.ca";
+import { JsonLd } from "@/components/JsonLd";
+import { ORG_ID } from "@/lib/schema";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
@@ -39,18 +40,18 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     inLanguage: "zh-CN",
     datePublished: g.updated,
     dateModified: g.updated,
-    author: { "@type": "Organization", name: "Tutela" },
-    publisher: { "@type": "Organization", name: "Tutela" },
+    // Pointed at the organisation node in the site-wide graph rather than
+    // repeating a bare name, so the guides, the site and the brand resolve to
+    // one identity.
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
     mainEntityOfPage: `${siteUrl}/guides/${g.slug}`,
   };
 
   return (
     <>
       <GuideArticle guide={g} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026") }}
-      />
+      <JsonLd data={jsonLd} />
     </>
   );
 }

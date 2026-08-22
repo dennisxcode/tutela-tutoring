@@ -1,14 +1,18 @@
 export type Bi = { zh: string; en: string };
 
 export const content = {
+  // "Tutela" on its own is a common Latin word, so the brand is written in both
+  // scripts — Tutela 识途学辅 — everywhere a search engine reads a name: the
+  // title, the description, the footer, the structured data. A parent who
+  // searches either half should land on tutelamtl.ca.
   meta: {
     title: {
-      zh: "识途学辅 · 蒙特利尔升学与学科辅导",
-      en: "Tutela · Montreal Admission & Academic Tutoring",
+      zh: "Tutela 识途学辅 · 蒙特利尔中学入学考试与学科辅导",
+      en: "Tutela 识途学辅 · Montreal Admission Exam & Academic Tutoring",
     },
     description: {
-      zh: "由来自魁北克顶尖中学的精英学生提供的小组辅导，打牢基础，启发兴趣，助力升学。",
-      en: "Small-group academic & admission exam tutoring by students from top Quebec secondary schools.",
+      zh: "Tutela（识途学辅）是蒙特利尔的中学入学考试备考与学科辅导团队：来自魁北克顶尖中学的学生授课，5–10 人线上小班，打牢基础，启发兴趣，助力升学。",
+      en: "Tutela (识途学辅) is a Montreal small-group tutoring team for Quebec secondary admission exams and academic foundations, taught online by students from top Quebec secondary schools.",
     },
     brand: { zh: "识途学辅", en: "Tutela" },
   },
@@ -17,6 +21,8 @@ export const content = {
     guides: { zh: "备考指南", en: "Guides" },
     home: { zh: "首页", en: "Home" },
     program: { zh: "课程", en: "Program" },
+    about: { zh: "关于我们", en: "About" },
+    contactPage: { zh: "联系方式", en: "Contact" },
   },
   ui: {
     viewProgram: { zh: "查看完整课程", en: "See the full program" },
@@ -445,6 +451,34 @@ export const content = {
       },
     },
   ] as { q: Bi; a: Bi }[],
+  // The guides teaser on the landing page. The guides are the part of the site
+  // a parent can use without ever contacting us, so the home page points at
+  // them by name rather than burying them in the nav.
+  homeGuides: {
+    title: { zh: "免费备考指南", en: "Free prep guides" },
+    intro: {
+      zh: "关于魁北克中学入学考试的常见疑问，我们写成了公开的指南——不必报名，也不必加微信，读完就能自己判断该怎么准备。",
+      en: "We've written up the questions families ask about Quebec's secondary admission exam as open guides — no enrolment, no WeChat needed, just read them and judge for yourself how to prepare.",
+    },
+    more: { zh: "查看全部指南", en: "See all guides" },
+  },
+  // A short answer set on the landing page itself. The full FAQ lives on
+  // /program; these four are the ones parents ask before they are willing to
+  // click anything, so they are answered in plain prose rather than hidden
+  // behind an accordion — readable to a parent skimming and to a crawler alike.
+  homeFaq: {
+    title: { zh: "家长常问", en: "Parents often ask" },
+    intro: {
+      zh: "报名前家长问得最多的几个问题，答案就写在这里，不必先加微信再问。",
+      en: "The questions parents ask most before enrolling, answered here rather than after you message us.",
+    },
+    more: { zh: "查看全部常见问题", en: "See all questions" },
+    // Which of `faq` to surface here, matched on a fragment of the Chinese
+    // question so reordering the FAQ can't silently change the selection.
+    // Picked to cover six different worries rather than the first six entries,
+    // which repeat each other on where classes are held.
+    featured: ["收费", "区别", "几个人", "线上还是线下", "什么时候开课", "适合几年级"],
+  },
   finalCta: {
     heading: { zh: "准备好帮孩子开始了吗？", en: "Ready to help your child get started?" },
     subtitle: {
@@ -459,6 +493,9 @@ export const content = {
       en: "This link may no longer exist, or the address was mistyped.",
     },
     home: { zh: "返回首页", en: "Back to home" },
+    // The 404 is the page automated crawlers hit most often, so it also hands
+    // them a machine-readable index of where the real content lives.
+    agentsTitle: { zh: "给自动抓取工具", en: "For AI agents and crawlers" },
   },
   footer: {
     cta: { zh: "扫码联系我", en: "Scan to contact me" },
@@ -478,12 +515,166 @@ export const content = {
       en: "Your contact details are used only to reach you about classes.",
     },
     copyright: {
-      zh: "© 2026 识途学辅 · 蒙特利尔升学与学科辅导",
-      en: "© 2026 Tutela · Montreal Admission & Academic Tutoring",
+      zh: "© 2026 Tutela 识途学辅 · 蒙特利尔中学入学考试与学科辅导 · tutelamtl.ca",
+      en: "© 2026 Tutela 识途学辅 · Montreal Admission Exam & Academic Tutoring · tutelamtl.ca",
     },
     privacyLink: { zh: "隐私政策", en: "Privacy Policy" },
     termsLink: { zh: "服务条款", en: "Terms of Service" },
+    // The footer repeats the same name / area / format / contact block that
+    // /about, /contact and the structured data carry, so every page states the
+    // brand's details identically.
+    napTitle: { zh: "机构信息", en: "Our details" },
   },
+  // Name, area served, format and contact in one place. The footer, /about,
+  // /contact, the JSON-LD and the agent-facing markdown all read from here, so
+  // a directory listing, a crawler and a parent scanning the footer always see
+  // identical details — the consistency is what makes the brand name findable.
+  org: {
+    name: { zh: "识途学辅（Tutela）", en: "Tutela（识途学辅）" },
+    tagline: {
+      zh: "蒙特利尔中学入学考试备考与学科基础辅导",
+      en: "Montreal secondary admission exam prep and academic tutoring",
+    },
+    areaServedLabel: { zh: "服务地区", en: "Area served" },
+    areaServed: {
+      zh: "加拿大魁北克省 · 大蒙特利尔地区",
+      en: "Greater Montreal, Quebec, Canada",
+    },
+    formatLabel: { zh: "上课方式", en: "Format" },
+    format: {
+      zh: "全部课程线上进行（Zoom），5–10 人小班",
+      en: "All classes run online over Zoom, in groups of 5–10",
+    },
+    languagesLabel: { zh: "语言", en: "Languages" },
+    languages: {
+      zh: "中文 · English · français",
+      en: "Chinese · English · French",
+    },
+    contactLabel: { zh: "联系方式", en: "Contact" },
+    contactLine: {
+      zh: "微信联系 Dennis，微信号 wxid_qs6tqmt94en122",
+      en: "WeChat Dennis, ID wxid_qs6tqmt94en122",
+    },
+    siteLabel: { zh: "网站", en: "Website" },
+    site: "tutelamtl.ca",
+  },
+  about: {
+    tag: { zh: "关于", en: "About" },
+    title: { zh: "关于识途学辅", en: "About Tutela" },
+    lede: {
+      zh: "识途学辅（Tutela）是一支来自魁北克顶尖中学的学生团队，为大蒙特利尔地区的家庭提供中学入学考试备考与学科基础辅导。全部课程线上进行，5–10 人小班，中英双语沟通。",
+      en: "Tutela is a team of students from top Quebec secondary schools, offering secondary admission exam preparation and foundational academic tutoring to families in Greater Montreal. Classes run online in groups of 5–10, and we correspond in both Chinese and English.",
+    },
+    sections: [
+      {
+        heading: { zh: "我们是谁", en: "Who we are" },
+        body: [
+          {
+            zh: "Tutela 一词来自拉丁语，意为「守护」。我们是一群仍在魁北克顶尖中学（包括 Collège Jean-de-Brébeuf）就读的学生：几年前，我们自己也坐在同一场中学入学考试的考场里，知道那几个月是什么滋味，也知道哪些准备真正管用、哪些只是白花时间。",
+            en: "Tutela is Latin for guardianship. We are students currently enrolled at top Quebec secondary schools, including Collège Jean-de-Brébeuf. A few years ago we sat the same secondary admission exam ourselves, so we know what those months feel like — and which kinds of preparation actually move the needle rather than just filling time.",
+          },
+          {
+            zh: "我们以团队的方式授课，每位导师负责自己最擅长的科目：数学导师在 AMC（美国数学竞赛）与 Waterloo（CEMC）数学竞赛中名列前茅；法语导师曾多次在 Brébeuf 写作比赛中获奖；英语导师就读于 Brébeuf 最高级别的英语课程。我们把能拿得出证据的资历写在这里，其余的留给课堂本身证明。",
+            en: "We teach as a team, each tutor taking the subject they know best. Our math tutor places among the top in the AMC and Waterloo (CEMC) contests; our French tutor has won Brébeuf writing competitions multiple times; our English tutor is enrolled in the highest level of English at Brébeuf. We list the credentials we can evidence, and leave the rest for the classroom to prove.",
+          },
+        ],
+      },
+      {
+        heading: { zh: "我们做什么", en: "What we do" },
+        body: [
+          {
+            zh: "我们有两条并行的课程线。中学入学考试备考班面向小学三、四、五年级，围绕数学、法语、英语三门核心科目，讲考点、练题型、稳心态，是我们的主推项目。一般学科辅导面向四年级及以下的孩子，不针对某一场考试，重在把数学与语言的基础打牢，把学习习惯和专注力养起来。",
+            en: "We run two parallel tracks. The secondary admission exam prep track is for primary grades 3, 4, and 5 and covers the three core subjects — Math, French, and English — working through the topics that come up, the question formats, and exam-day composure. It is our lead program. The general academic track is for grade 4 and below; it is not tied to any one exam and concentrates on solid math and language foundations, study habits, and focus.",
+          },
+          {
+            zh: "除了课程本身，我们还整理了一系列关于魁北克中学入学考试的免费指南——考试什么时候考、考哪些科目、几年级该开始准备、如何选择目标学校。这些内容不需要报名就能读，也欢迎家长自行取用。",
+            en: "Alongside the classes we publish a set of free guides to Quebec's secondary admission exam: when it happens, which subjects it tests, when preparation should begin, and how to choose target schools. They are free to read without enrolling, and parents are welcome to use them on their own.",
+          },
+        ],
+      },
+      {
+        heading: { zh: "我们怎么上课", en: "How we teach" },
+        body: [
+          {
+            zh: "所有课程通过 Zoom 线上进行，家长不必接送，孩子在熟悉的环境里更容易进入状态。每组 5–10 人，人数刻意压得很低：小班的意义不在于「氛围好」，而在于导师能记住每个孩子卡在哪一步。课后遇到不懂的题，随时可以联系我们，不必等到下一节课。",
+            en: "Every class runs online over Zoom, so there is no commute for parents and children settle in faster from a familiar room. Groups are deliberately kept to 5–10 students: the point of a small group is not atmosphere, it is that a tutor can remember exactly where each child gets stuck. When a question comes up after class, families can reach us then and there rather than waiting for the next session.",
+          },
+          {
+            zh: "第一节课是免费试听。孩子实际上过一节课之后，家长再决定要不要报名——我们认为这比任何介绍页都更能说明问题。",
+            en: "The first class is a free trial. Parents decide whether to enrol after their child has actually sat in one — we think that tells you more than any page of description can.",
+          },
+        ],
+      },
+      {
+        heading: { zh: "我们不说的话", en: "What we do not claim" },
+        body: [
+          {
+            zh: "我们不承诺录取结果，不展示无法核实的「学员成绩」，也不与任何学校存在隶属关系——我们只是碰巧就读于其中几所。模拟测试仍在制作中（即将推出），在正式上线之前我们不会把它写成已有的服务。凡是这个网站上没写的，就是我们还做不到的。",
+            en: "We do not promise admission outcomes, we do not display student results we cannot verify, and we are not affiliated with any school — we simply happen to attend a few of them. Our practice exams are still being built (coming soon) and we will not describe them as an existing service until they are live. If it is not written on this site, it is something we cannot yet do.",
+          },
+        ],
+      },
+    ] as { heading: Bi; body: Bi[] }[],
+    napTitle: { zh: "机构信息", en: "Our details" },
+    contactCta: { zh: "查看联系方式", en: "See how to reach us" },
+    programCta: { zh: "查看完整课程", en: "See the full program" },
+  },
+  contactPage: {
+    tag: { zh: "联系", en: "Contact" },
+    title: { zh: "联系我们", en: "Contact us" },
+    lede: {
+      zh: "报名、试听、一对一辅导，或者只是想先问几个问题——都欢迎通过微信联系我。我是 Dennis，识途学辅由我负责对接家长。",
+      en: "Enrolment, a trial class, one-on-one tutoring, or just a few questions before you decide — WeChat is the way to reach me. I'm Dennis, and I handle everything on the parents' side at Tutela.",
+    },
+    sections: [
+      {
+        heading: { zh: "怎么联系", en: "How to reach us" },
+        body: [
+          {
+            zh: "扫描页面底部的二维码加我微信，或直接搜索微信号 wxid_qs6tqmt94en122。手机上无法扫自己屏幕上的码，可以长按二维码识别，或截图后用「扫一扫」从相册打开。微信是我们唯一的联系方式——我们没有客服电话，也不通过邮件收报名。",
+            en: "Scan the QR code at the bottom of any page to add me on WeChat, or search for the ID wxid_qs6tqmt94en122 directly. If you are on a phone and cannot scan a code on your own screen, long-press the QR to recognise it, or screenshot it and open it from your album. WeChat is our only contact channel — there is no phone line, and we do not take enrolments by email.",
+          },
+        ],
+      },
+      {
+        heading: { zh: "第一条消息里写什么", en: "What to put in your first message" },
+        body: [
+          {
+            zh: "为了少来回几轮，第一条消息里可以直接写上：孩子现在读几年级、想报哪几门科目（数学 / 法语 / 英语）、是备考入学考试还是打基础，以及有没有心仪的目标学校。如果情况比较特殊（比如 Sec 1 想转学，或者想安排一对一），也一并说明，我们会单独给方案。",
+            en: "To save a few rounds of back-and-forth, your first message can include: your child's current grade, which subjects you are interested in (Math, French, English), whether you are preparing for the admission exam or building foundations, and any target schools you have in mind. If your situation is unusual — a Sec 1 student transferring, say, or a request for one-on-one tutoring — mention that too and we will work out a plan separately.",
+          },
+        ],
+      },
+      {
+        heading: { zh: "我们能帮到谁，帮不到谁", en: "Who we can help, and who we can't" },
+        body: [
+          {
+            zh: "我们面向大蒙特利尔地区的家庭，但课程全部线上进行，所以魁北克省内其他城市的孩子同样可以上课。中文、English、français 都可以沟通，家长用哪种语言给我们留言都行。",
+            en: "We work with families in Greater Montreal, but because every class is online, children elsewhere in Quebec can join just as easily. We correspond in Chinese, English, and French — write to us in whichever you prefer.",
+          },
+          {
+            zh: "有些事我们做不了，也想先说清楚：我们不提供上门或线下辅导，不代办任何学校的报名手续，也不涉及 CEGEP、大学申请或 IB/AP 课程。如果你要找的是这些，我们会直接告诉你，而不是先把你留下来。",
+            en: "Some things we don't do, and would rather say up front: no in-home or in-person tutoring, no handling a school's registration paperwork on your behalf, and nothing to do with CEGEP, university applications, or IB/AP coursework. If that's what you're looking for, we'll tell you straight away rather than keeping you talking.",
+          },
+        ],
+      },
+      {
+        heading: { zh: "接下来会发生什么", en: "What happens next" },
+        body: [
+          {
+            zh: "我们会回复你目前的班级安排和空位情况，并约一节免费试听课。孩子上过之后，你再决定是否报名。确认报名后，我们会邀请你加入家长群，上课时间、课件和临时调整都在群里同步。",
+            en: "We will reply with the current class times and whether there is space, and arrange a free trial class. After your child has sat in one, you decide whether to enrol. Once you do, we add you to the parents' group, where class times, materials, and any schedule changes are shared.",
+          },
+          {
+            zh: "你留下的联系方式只用于课程沟通，不会用于其他用途，也不会转给第三方。详见隐私政策。",
+            en: "Your contact details are used only to reach you about classes. We do not use them for anything else and do not pass them to third parties. See our privacy policy for the full picture.",
+          },
+        ],
+      },
+    ] as { heading: Bi; body: Bi[] }[],
+    napTitle: { zh: "联系信息", en: "Contact details" },
+  },
+
 };
 
 export type Content = typeof content;
